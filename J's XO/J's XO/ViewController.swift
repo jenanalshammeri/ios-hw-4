@@ -112,6 +112,7 @@ class ViewController: UIViewController
         if checkWinner(p: "X")
         {
             xCounter += 1
+            xCounterLabel.text = String(xCounter)
             theThreeTimeWinner()
             okAlert(title: "X Wins!", message: "Congratulations! Now reset the game please!")
             
@@ -119,6 +120,7 @@ class ViewController: UIViewController
         else if checkWinner(p: "O")
         {
             oCounter += 1
+            oCounterLabel.text = String(oCounter)
             theThreeTimeWinner()
             okAlert(title: "O Wins!", message: "Congratulations! Now reset the game please!")
             
@@ -168,46 +170,60 @@ class ViewController: UIViewController
     
     @IBAction func reset(_ sender: Any)
     {
-        imageView.image = UIImage(named:"Second")
-        
-        b1.titleLabel?.text = ""
-        b2.titleLabel?.text = ""
-        b3.titleLabel?.text = ""
-        b4.titleLabel?.text = ""
-        b5.titleLabel?.text = ""
-        b6.titleLabel?.text = ""
-        b7.titleLabel?.text = ""
-        b8.titleLabel?.text = ""
-        b9.titleLabel?.text = ""
-        
-        b1.setTitle("", for: .normal)
-        b2.setTitle("", for: .normal)
-        b3.setTitle("", for: .normal)
-        b4.setTitle("", for: .normal)
-        b5.setTitle("", for: .normal)
-        b6.setTitle("", for: .normal)
-        b7.setTitle("", for: .normal)
-        b8.setTitle("", for: .normal)
-        b9.setTitle("", for: .normal)
-        
-        b1.isEnabled = true
-        b2.isEnabled = true
-        b3.isEnabled = true
-        b4.isEnabled = true
-        b5.isEnabled = true
-        b6.isEnabled = true
-        b7.isEnabled = true
-        b8.isEnabled = true
-        b9.isEnabled = true
-        
-        counter = 0
+       resetGame()
     }
     
     func okAlert(title: String, message: String)
     {
         let alertController = UIAlertController( title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .cancel)
+        {
+            (alert) in self.resetGame()
+        }
         alertController.addAction(okAction)
         present(alertController, animated: true)
     }
+    
+    func resetGame()
+    {
+        imageView.image = UIImage(named:"Second")
+               
+               b1.titleLabel?.text = ""
+               b2.titleLabel?.text = ""
+               b3.titleLabel?.text = ""
+               b4.titleLabel?.text = ""
+               b5.titleLabel?.text = ""
+               b6.titleLabel?.text = ""
+               b7.titleLabel?.text = ""
+               b8.titleLabel?.text = ""
+               b9.titleLabel?.text = ""
+               
+               b1.setTitle("", for: .normal)
+               b2.setTitle("", for: .normal)
+               b3.setTitle("", for: .normal)
+               b4.setTitle("", for: .normal)
+               b5.setTitle("", for: .normal)
+               b6.setTitle("", for: .normal)
+               b7.setTitle("", for: .normal)
+               b8.setTitle("", for: .normal)
+               b9.setTitle("", for: .normal)
+               
+               b1.isEnabled = true
+               b2.isEnabled = true
+               b3.isEnabled = true
+               b4.isEnabled = true
+               b5.isEnabled = true
+               b6.isEnabled = true
+               b7.isEnabled = true
+               b8.isEnabled = true
+               b9.isEnabled = true
+               
+               counter = 0
+    }
+    
+    
+    
+    
+    
 }
+
